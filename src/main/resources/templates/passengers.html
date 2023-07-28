@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Passenger Management</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Passenger Management System</a>
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/passengers}">Passenger Management</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/passengers}">Luggage Management</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class ="container">
+    <div class = "row">
+        <h1> Passengers </h1>
+    </div>
+
+    <div class = "row">
+        <div class = "col-lg-3">
+            <a th:href = "@{/passengers/new}" class = "btn btn-primary btn-sm mb-3"> Add Passenger</a>
+        </div>
+    </div>
+    <table class = "table table-striped table-bordered">
+        <thead class = "table-dark">
+        <tr>
+            <th> Passenger Id</th>
+            <th> Passenger Name</th>
+            <th> Passport Number</th>
+            <th> Passenger Email </th>
+            <th> Luggage</th>
+            <th> Num</th>
+            <th> Actions </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each = "passenger: ${passengers}">
+            <td th:text = "${passenger.id}"></td>
+            <td th:text = "${passenger.name}"></td>
+            <td th:text = "${passenger.passportNumber}"></td>
+            <td th:text = "${passenger.email}"></td>
+            <td> <a th:href="@{/luggage-items/new/{id}(id=${passenger.id})}">New Luggage</a> </td>
+            <td th:text = "${passenger.luggageLst.size}"> </td>
+            <td>
+                <a th:href = "@{/passengers/edit/{id}(id=${passenger.id})}"
+                   class = "btn btn-primary">Update</a>
+
+                <a th:href = "@{/passengers/delete/{id}(id=${passenger.id})}"
+                   class = "btn btn-danger">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+</body>
+</html>
