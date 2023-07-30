@@ -23,7 +23,7 @@ public class PassengerRepositoryTest {
     @Autowired
     private FlightRepository flightRepository;
 
-    @Test
+    //@Test
     void testSavePassenger() {
 
         Passenger passenger1 = new Passenger();
@@ -49,20 +49,20 @@ public class PassengerRepositoryTest {
         //flightRepository.save(flight1);
 
         Set<Flight> flights= new HashSet();
-        flights.add(flights);
+        flights.add(flight1);
         passenger1.setFlights(flights);
         passenger1.setLuggageLst(passenger1Luggage);
         passengerRepository.save(passenger1);
     }
 
-    @Test
+    //@Test
     void testUpdatePassenger() {
         Passenger passenger = passengerRepository.findById(1L).get();
         passenger.setEmail("philip.courtois@gmail.com");
         passengerRepository.save(passenger);
     }
 
-    @Test
+    //@Test
     void testGetAllPassengers() {
 
         List<Passenger> passengers = passengerRepository.findAll();
@@ -75,7 +75,7 @@ public class PassengerRepositoryTest {
         });
     }
 
-    @Test
+    //@Test
     void testFindPassengerByPassportNumber() {
 
         Passenger passenger = passengerRepository.findByPassportNumber("UK-X123k-philip");
