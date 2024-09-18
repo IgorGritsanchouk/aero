@@ -23,7 +23,7 @@ public class PassengerRepositoryTest {
     @Autowired
     private FlightRepository flightRepository;
 
-    //@Test
+    @Test
     void testSavePassenger() {
 
         Passenger passenger1 = new Passenger();
