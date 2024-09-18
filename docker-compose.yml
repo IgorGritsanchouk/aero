@@ -1,0 +1,18 @@
+name: aero
+services:
+  aero-slim-17:
+    ports:
+      - :80:80
+    image: aero-slim-17:v1
+#https://www.composerize.com/
+#https://www.youtube.com/watch?v=RqTEHSBrYFw&t=9402s    #tutorial
+#version: '3.1'
+#services:
+#  aero-server:
+#      container_name: aero-server
+#      build:
+#        context: docker-aero-server
+#        dockerfile: Dockerfile
+#      image: aero:v3
+#      ports:
+#         - 80:80

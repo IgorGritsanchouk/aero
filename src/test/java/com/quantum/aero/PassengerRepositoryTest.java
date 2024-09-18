@@ -8,7 +8,6 @@ import com.quantum.aero.repositories.PassengerRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -48,7 +47,7 @@ public class PassengerRepositoryTest {
         flight1Passengers.add(passenger1);
         //flightRepository.save(flight1);
 
-        Set<Flight> flights= new HashSet();
+        Set<Flight> flights = new HashSet();
         flights.add(flight1);
         passenger1.setFlights(flights);
         passenger1.setLuggageLst(passenger1Luggage);
@@ -79,11 +78,11 @@ public class PassengerRepositoryTest {
     void testFindPassengerByPassportNumber() {
 
         Passenger passenger = passengerRepository.findByPassportNumber("UK-X123k-philip");
-        System.out.println("xxxxx  passenger id :: "+ passenger.getId());
+        System.out.println("xxxxx  passenger id :: " + passenger.getId());
 
         // add fetch type as EAGER
         passenger.getLuggageLst().forEach((luggage) -> {
-            System.out.println("luggage id :: "+ luggage.getId());
+            System.out.println("luggage id :: " + luggage.getId());
         });
 
         //passengerRepository.deleteById(2L);
